@@ -10,11 +10,15 @@
       <h1>Hi, my name is @Model.GetName()</h1>
       <h2>My level of hunger is @Model.GetFoodLevel()</h2>
       <h2>Am I dead? @Model.GetIsDead()</h2>
+      <h2>Sleep @Model.GetSleepLevel()</h2>
       <form method="post" action="/feed-pet/@Model.GetId()">
         <button type="submit" class="btn btn-default">Feed me</button>
       </form>
       <form method="post" action="/wait/@Model.GetId()">
         <button type="submit" class="btn btn-default">Wait</button>
+      </form>
+      <form action="/sleep/@Model.GetId()" method="post">
+        <button type="submit" name="button">Sleep</button>
       </form>
       <a href="/">Return to Tamagotchi</a>
     </div>

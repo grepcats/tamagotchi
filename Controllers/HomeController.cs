@@ -32,6 +32,7 @@ namespace Tamagotchi.Controllers
     {
       Pet newPet = Pet.Find(id);
       newPet.SetFoodLevel(-1);
+      newPet.SetSleepLevel(-1);
       newPet.IsDead();
       if (newPet.GetIsDead())
       {
@@ -48,6 +49,13 @@ namespace Tamagotchi.Controllers
     {
       Pet newPet = Pet.Find(id);
       newPet.SetFoodLevel(1);
+      return View("Details", newPet);
+    }
+    [HttpPost("/sleep/{id}")]
+    public ActionResult Sleep(int id)
+    {
+      Pet newPet = Pet.Find(id);
+      newPet.SetSleepLevel(1);
       return View("Details", newPet);
     }
 
