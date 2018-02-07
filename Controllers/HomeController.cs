@@ -30,18 +30,22 @@ namespace Tamagotchi.Controllers
     [HttpPost("/wait/{id}")]
     public ActionResult Wait(int id)
     {
+      List<Pet> allPets = Pet.GetAll();
       Pet newPet = Pet.Find(id);
-      newPet.SetFoodLevel(-1);
-      newPet.SetSleepLevel(-1);
-      newPet.SetAttentionLevel(-1);
-      newPet.IsDead();
+      foreach (Pet pet in allPets)
+      {
+        pet.SetFoodLevel(-1);
+        pet.SetSleepLevel(-1);
+        pet.SetAttentionLevel(-1);
+        pet.IsDead();
+      }
       if (newPet.GetIsDead())
       {
         return View("DeadPet", newPet);
       }
       else
       {
-      return View("Details", newPet);
+        return View("Details", newPet);
       }
     }
 
