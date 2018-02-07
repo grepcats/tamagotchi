@@ -8,9 +8,9 @@ namespace Tamagotchi.Models
   {
     private string _name;
     private int _food;
-    // private int _sleep;
-    // private int _attention;
-    // private bool _dead;
+    private int _sleep;
+    private int _attention;
+    private bool _dead;
     private int _id;
 
     private static List<Pet> _instances = new List<Pet> {};
@@ -19,9 +19,9 @@ namespace Tamagotchi.Models
     {
       _name = name;
       _food = 10;
-      // _sleep = 10;
-      // _attention = 10;
-      // _dead = false;
+      _sleep = 10;
+      _attention = 10;
+      _dead = false;
       _instances.Add(this);
       _id = _instances.Count;
     }
@@ -45,6 +45,44 @@ namespace Tamagotchi.Models
     {
       _food += num;
     }
+
+    public int GetSleepLevel()
+    {
+      return _sleep;
+    }
+
+    public void SetSleepLevel(int num)
+    {
+      _sleep += num;
+    }
+
+    public int GetAttentionLevel()
+    {
+      return _attention;
+    }
+
+    public void SetAttentionLevel(int num)
+    {
+      _attention += num;
+    }
+
+    public void IsDead()
+    {
+      if (_food <= 0 || _sleep <= 0 || _attention <= 0)
+      {
+        _dead = true;
+      }
+      else
+      {
+        _dead = false;
+      }
+    }
+
+    public bool GetIsDead()
+    {
+      return _dead;
+    }
+
     public static List<Pet> GetAll()
     {
       return _instances;

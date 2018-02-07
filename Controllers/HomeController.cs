@@ -32,7 +32,15 @@ namespace Tamagotchi.Controllers
     {
       Pet newPet = Pet.Find(id);
       newPet.SetFoodLevel(-1);
+      newPet.IsDead();
+      if (newPet.GetIsDead())
+      {
+        return View("DeadPet", newPet);
+      }
+      else
+      {
       return View("Details", newPet);
+      }
     }
 
     [HttpPost("/feed-pet/{id}")]
