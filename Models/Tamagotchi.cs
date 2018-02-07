@@ -26,6 +26,14 @@ namespace Tamagotchi.Models
       _id = _instances.Count;
     }
 
+    public static void Remove(int id)
+    {
+      _instances.RemoveAt(id-1);
+      for (int i = 0; i < _instances.Count; i++) {
+        _instances[i]._id = i+1;
+      }
+    }
+
     public string GetName()
     {
       return _name;
@@ -95,8 +103,5 @@ namespace Tamagotchi.Models
     {
       return _id;
     }
-    //get & set for sleep
-    //get & set for attention
-    //get & set for dead
   }
 }

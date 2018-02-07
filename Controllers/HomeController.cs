@@ -68,5 +68,13 @@ namespace Tamagotchi.Controllers
       return View("Details", newPet);
     }
 
+    [HttpPost("/remove/{id}")]
+    public ActionResult RemovePet(int id)
+    {
+      Pet.Remove(id);
+      List<Pet> allPets = Pet.GetAll();
+      return View("Index", allPets);
+    }
+
   }
 }

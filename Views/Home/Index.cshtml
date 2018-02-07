@@ -20,10 +20,20 @@
       </form>
       @foreach (var pet in Model)
       {
-        <p> <a href ='/@pet.GetId()'>name: @pet.GetName()</a></p>
+        if (pet.GetIsDead())
+        {
+          <p>@pet.GetName() is dead! <form action="/remove/@pet.GetId()" method="post">
+            <button type="submit" class="btn btn-default btn-xs">Remove Dead Pet?</button>
+          </form></p>
+        }
+        else
+        {
+          <p> <a href ='/@pet.GetId()'>Take care of @pet.GetName()</a></p>
+        }
+
 
       }
-
+    <form
     </div>
 
   </body>
