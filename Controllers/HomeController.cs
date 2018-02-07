@@ -18,7 +18,7 @@ namespace Tamagotchi.Controllers
     public ActionResult CreatePet()
     {
       Pet newGuy = new Pet(Request.Form["name"]);
-      return View("PetPage", newGuy);
+      return View("Details", newGuy);
     }
     [HttpGet("/{id}")]
     public ActionResult Details(int id)
@@ -26,5 +26,22 @@ namespace Tamagotchi.Controllers
       Pet newPet = Pet.Find(id);
       return View(newPet);
     }
+
+    [HttpPost("/wait/{id}")]
+    public ActionResult Wait(int id)
+    {
+      Pet newPet = Pet.Find(id);
+      newPet.SetFoodLevel(-1);
+      return View("Details", newPet);
+    }
+
+    [HttpPost("/feed-pet/{id}")]
+    public ActionResult Feed(int id)
+    {
+      Pet newPet = Pet.Find(id);
+      newPet.SetFoodLevel(1);
+      return View("Details", newPet);
+    }
+
   }
 }

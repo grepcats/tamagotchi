@@ -8,9 +8,9 @@ namespace Tamagotchi.Models
   {
     private string _name;
     private int _food;
-    private int _sleep;
-    private int _attention;
-    private bool _dead;
+    // private int _sleep;
+    // private int _attention;
+    // private bool _dead;
     private int _id;
 
     private static List<Pet> _instances = new List<Pet> {};
@@ -19,9 +19,9 @@ namespace Tamagotchi.Models
     {
       _name = name;
       _food = 10;
-      _sleep = 10;
-      _attention = 10;
-      _dead = false;
+      // _sleep = 10;
+      // _attention = 10;
+      // _dead = false;
       _instances.Add(this);
       _id = _instances.Count;
     }
