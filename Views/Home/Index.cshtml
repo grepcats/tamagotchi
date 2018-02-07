@@ -18,6 +18,11 @@
         </div>
         <button type="submit" class="btn btn-primary">Adopt me!</button>
       </form>
+      @foreach (var pet in Model)
+      {
+        <p> <a href ='/@pet.GetId()'>name: @pet.GetName()</a></p>
+
+      }
 
     </div>
 
