@@ -18,9 +18,9 @@ namespace Tamagotchi.Models
     public Pet(string name)
     {
       _name = name;
-      _food = 10;
-      _sleep = 10;
-      _attention = 10;
+      _food = 15;
+      _sleep = 15;
+      _attention = 15;
       _dead = false;
       _instances.Add(this);
       _id = _instances.Count;
